@@ -15,7 +15,7 @@
     "source": "https://github.com/bantenprov/info-kamar"
   },
   "require": {
-    "bantenprov/info-kamar": "1.0.*"
+    "bantenprov/yankes": "1.0.*"
   },
   "autoload": {
         "files": [
