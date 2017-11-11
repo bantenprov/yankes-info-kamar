@@ -1,8 +1,8 @@
 {
   "description": "Informasi ruang / kamar untuk rawat inap yang dapat digunakan",
-  "name": "bantenprov/info-kamar",
+  "name": "bantenprov/yankes-info-kamar",
   "type": "library",
-  "homepage": "https://github.com/bantenprov/info-kamar",
+  "homepage": "https://github.com/bantenprov/yankes-info-kamar",
   "authors": [
     {
       "name": "bantenprov",
@@ -12,7 +12,7 @@
   ],
   "license": "MIT",
   "support": {
-    "source": "https://github.com/bantenprov/info-kamar"
+    "source": "https://github.com/bantenprov/yankes-info-kamar"
   },
   "require": {
     "bantenprov/yankes": "1.0.*"
@@ -22,7 +22,7 @@
             "src/helpers/helpers.php"
         ],
         "psr-4": {
-            "Bantenprov\\InfoKamar\\": "src"
+            "Bantenprov\\YankesInfoKamar\\": "src"
         }
     },
     "minimum-stability": "stable"
