@@ -1,0 +1,29 @@
+{
+  "description": "Informasi ruang / kamar untuk rawat inap yang dapat digunakan",
+  "name": "bantenprov/info-kamar",
+  "type": "library",
+  "homepage": "https://github.com/bantenprov/info-kamar",
+  "authors": [
+    {
+      "name": "bantenprov",
+      "email": "developer.bantenprov@gmail.com",
+      "role": "developer",
+    }
+  ],
+  "license": "MIT",
+  "support": {
+    "source": "https://github.com/bantenprov/info-kamar"
+  },
+  "require": {
+    "bantenprov/info-kamar": "1.0.*"
+  },
+  "autoload": {
+        "files": [
+            "src/helpers/helpers.php"
+        ],
+        "psr-4": {
+            "Bantenprov\\InfoKamar\\": "src"
+        }
+    },
+    "minimum-stability": "stable"
+}
