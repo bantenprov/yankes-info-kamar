@@ -13,6 +13,7 @@
   "license": "MIT",
   "support": {
     "source": "https://github.com/bantenprov/yankes-info-kamar"
+    "issue": "https://github.com/bantenprov/yankes-info-kamar/issue"
   },
   "require": {
     "bantenprov/yankes": "1.0.*"
