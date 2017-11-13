@@ -12,8 +12,9 @@
   ],
   "license": "MIT",
   "support": {
-    "source": "https://github.com/bantenprov/yankes-info-kamar"
-    "issue": "https://github.com/bantenprov/yankes-info-kamar/issue"
+    "source": "https://github.com/bantenprov/yankes-info-kamar",
+    "issue": "https://github.com/bantenprov/yankes-info-kamar/issue",
+    "wiki": "https://github.com/bantenprov/yankes-info-kamar/wiki"
   },
   "require": {
     "bantenprov/yankes": "1.0.*"
