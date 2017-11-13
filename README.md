@@ -20,7 +20,7 @@ $ composer require bantenprov/yankes-info-kamar
     App\Providers\RouteServiceProvider::class,
     ...
     Bantenprov\YankesInfoKamar\InfoKamarServiceProvider::class,
-     Collective\Html\HtmlServiceProvider::class,
+    Collective\Html\HtmlServiceProvider::class,
 ```
 ## Artisan command :
 
