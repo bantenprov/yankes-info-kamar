@@ -1,11 +1,11 @@
-<?php namespace Bantenprov\YankesInfoKamar\Http\Controllers;
+<?php namespace Supriyanih\InfoKamar\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Bantenprov\YankesInfoKamar\Facades\InfoKamar;
-use Bantenprov\YankesInfoKamar\Models\Kelasrawat;
-use Bantenprov\YankesInfoKamar\Requests\StoreKelas;
-use Bantenprov\YankesInfoKamar\Requests\UpdateKelas;
+use Supriyanih\InfoKamar\Facades\InfoKamar;
+use Supriyanih\InfoKamar\Models\Kelasrawat;
+use Supriyanih\InfoKamar\Requests\StoreKelas;
+use Supriyanih\InfoKamar\Requests\UpdateKelas;
 
 /**
  * The InfoKamarController class.
@@ -18,7 +18,7 @@ class KelasController extends Controller
 
  public function index(){
 
- 	$kelas = Kelasrawat::all();
+ 	$kelas = Kelasrawat::paginate(5);
 
  	return view('info-kamar::kelas.index', compact('kelas'));
 

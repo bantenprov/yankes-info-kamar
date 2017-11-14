@@ -1,7 +1,7 @@
-<?php namespace Bantenprov\YankesInfoKamar;
+<?php namespace Supriyanih\InfoKamar;
 
 use Illuminate\Support\ServiceProvider;
-use Bantenprov\YankesInfoKamar\Console\Commands\InfoKamarCommand;
+use Supriyanih\InfoKamar\Console\Commands\InfoKamarCommand;
 
 /**
  * The InfoKamarServiceProvider class

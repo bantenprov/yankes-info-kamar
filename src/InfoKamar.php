@@ -1,4 +1,4 @@
-<?php namespace Bantenprov\YankesInfoKamar;
+<?php namespace Supriyanih\InfoKamar;
 
 /**
  * The InfoKamar class.
@@ -10,6 +10,6 @@ class InfoKamar
 {
     public function welcome()
     {
-        return 'Welcome to Bantenprov\YankesInfoKamar package';
+        return 'Welcome to Supriyanih\InfoKamar package';
     }
 }

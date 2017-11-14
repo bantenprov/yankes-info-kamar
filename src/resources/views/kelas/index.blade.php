@@ -34,4 +34,9 @@
 
          </tbody>
          </table>
+         <h5>Paginate</h5>
+           <div >
+          Data {{ $kelas->firstItem() }}-{{ $kelas->lastItem() }} Total Data :<strong> {{ $kelas->total()  }}</strong> </small>
+            {!! $kelas->links() !!}
+           </div>
      </div>

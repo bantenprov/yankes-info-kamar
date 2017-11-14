@@ -1,4 +1,4 @@
-<?php namespace Bantenprov\YankesInfoKamar\Facades;
+<?php namespace Supriyanih\InfoKamar\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,4 +1,4 @@
-<?php namespace Bantenprov\YankesInfoKamar\Models;
+<?php namespace Supriyanih\InfoKamar\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -46,6 +46,6 @@ class Kelasrawat extends Model
 
      public function kelas()
     {
-      return  $this->hasMany('Bantenprov\YankesInfoKamar\Models\Ruangrawat','id');
+      return  $this->hasMany('Supriyanih\InfoKamar\Models\Ruangrawat','id');
     }
 }

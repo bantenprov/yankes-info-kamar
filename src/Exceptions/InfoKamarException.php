@@ -1,4 +1,4 @@
-<?php namespace Bantenprov\YankesInfoKamar\Exceptions;
+<?php namespace Supriyanih\InfoKamar\Exceptions;
 
 use Exception;
 

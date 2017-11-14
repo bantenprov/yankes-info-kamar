@@ -1,6 +1,6 @@
 <?php
 
-namespace Bantenprov\YankesInfoKamar\Requests;
+namespace Supriyanih\InfoKamar\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

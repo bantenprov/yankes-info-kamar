@@ -1,4 +1,4 @@
-<?php namespace Bantenprov\YankesInfoKamar\Contracts;
+<?php namespace Supriyanih\InfoKamar\Contracts;
 
 /**
  * The InfoKamarInterface interface

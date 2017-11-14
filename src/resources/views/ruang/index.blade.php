@@ -36,4 +36,9 @@
 
          </tbody>
          </table>
+         <h5>Paginate</h5>
+           <div >
+          Data {{ $ruang->firstItem() }}-{{ $ruang->lastItem() }} Total Data :<strong> {{ $ruang->total()  }}</strong> </small>
+            {!! $ruang->links() !!}
+           </div>
      </div>

@@ -38,4 +38,9 @@
 
          </tbody>
          </table>
+         <h5>Paginate</h5>
+           <div >
+          Data {{ $bed->firstItem() }}-{{ $bed->lastItem() }} Total Data :<strong> {{ $bed->total()  }}</strong> </small>
+            {!! $bed->links() !!}
+           </div>
      </div>

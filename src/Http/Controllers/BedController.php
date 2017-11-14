@@ -1,12 +1,12 @@
-<?php namespace Bantenprov\YankesInfoKamar\Http\Controllers;
+<?php namespace Supriyanih\InfoKamar\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Bantenprov\YankesInfoKamar\Facades\InfoKamar;
-use Bantenprov\YankesInfoKamar\Models\Ruangrawat;
-use Bantenprov\YankesInfoKamar\Models\Tempattidur;
-use Bantenprov\YankesInfoKamar\Requests\StoreBed;
-use Bantenprov\YankesInfoKamar\Requests\UpdateBed;
+use Supriyanih\InfoKamar\Facades\InfoKamar;
+use Supriyanih\InfoKamar\Models\Ruangrawat;
+use Supriyanih\InfoKamar\Models\Tempattidur;
+use Supriyanih\InfoKamar\Requests\StoreBed;
+use Supriyanih\InfoKamar\Requests\UpdateBed;
 
 
 class BedController extends Controller
@@ -14,7 +14,7 @@ class BedController extends Controller
 
  public function index(){
 
- 	$bed = Tempattidur::with('ranjang')->get();
+ 	$bed = Tempattidur::with('ranjang')->paginate(5);
 
  	return view('info-kamar::bed.index', compact('bed'));
 

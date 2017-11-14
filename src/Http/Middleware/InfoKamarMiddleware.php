@@ -1,4 +1,4 @@
-<?php namespace Bantenprov\YankesInfoKamar\Http\Middleware;
+<?php namespace Supriyanih\InfoKamar\Http\Middleware;
 
 use Closure;
 

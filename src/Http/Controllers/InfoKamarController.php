@@ -1,9 +1,9 @@
-<?php namespace Bantenprov\YankesInfoKamar\Http\Controllers;
+<?php namespace Supriyanih\InfoKamar\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Bantenprov\YankesInfoKamar\Facades\InfoKamar;
-use Bantenprov\YankesInfoKamarr\Models\Tempattidur;
+use Supriyanih\InfoKamar\Facades\InfoKamar;
+use Supriyanih\InfoKamar\Models\Tempattidur;
 
 /**
  * The InfoKamarController class.
@@ -16,7 +16,7 @@ class InfoKamarController extends Controller
     public function demo()
     {
 
-      $bed = Tempattidur::with('ranjang.kelas')->whereNull('deleted_at')->get();
+      $bed = Tempattidur::with('ranjang.kelas')->whereNull('deleted_at')->paginate(5);;
         return view('info-kamar::view', compact('bed'));
     }
 }
