@@ -1,0 +1,51 @@
+@extends('layouts.app')
+@section('content')
+
+<h1>Data Tempat Tidur</h1>
+<h4> <a href="{{ url('home')}}" class="btn btn-default btn-sm">&laquo; Kembali </a></h4>
+    <h3> <a href="{{ route('bedrawat.create')}}" class="btn btn-default btn-sm">Tambah &raquo;</a></h3>
+   <div class="table-responsive">
+    <table class="table table-striped  b-t">
+         <thead>
+        <tr>
+            <th>Rumah Sakit</th>
+            <th>Kelas</th>
+            <th>Ruang</th>
+            <th>Kode Tempat Tidur</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+         <tbody>
+
+    @foreach($bed as $r)
+      <tr>
+        <td>{{$r->ranjang->kelas->kamar->name}}</td>
+        <td>{{$r->ranjang->kelas->nama_kelas}}</td>
+       <td>{{$r->ranjang->nama_ruang}}</td>
+       <td>{{ $r->kode_bed }}</td>
+          <td>{{ $r->status }}</td>
+       <td class="text-center">
+            <a href="{{ route('bedrawat.show',$r->id)}}" class="btn btn-sm"> show </a>
+            <a href="{{ route('bedrawat.edit',$r->id)}}" class="btn btn-sm"> ubah </a>
+            <form method="POST" action="{{ route('bedrawat.destroy', [$r->id]) }}">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+        <button type="submit" class="btn btn-sm btn-warning">hapus</button>
+            </form></td>
+       </td>
+
+        </tr>
+
+        @endforeach
+
+         </tbody>
+         </table>
+         <h5>Paginate</h5>
+           <div >
+          Data {{ $bed->firstItem() }}-{{ $bed->lastItem() }} Total Data :<strong> {{ $bed->total()  }}</strong> </small>
+            {!! $bed->links() !!}
+           </div>
+     </div>
+
+   @endsection

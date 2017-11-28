@@ -5,6 +5,65 @@ Sistem informasi layanan kesehatan terpadu.
 ```bash
 $ composer create-project --prefer-dist laravel/laravel project-name "5.4.*"
 ```
+## create table rumahsakits :
+```bash
+$ php artisan make:migration create_rumahsakits_table --create=rumahsakits
+```
+
+## create migratation schema :
+```php
+Schema::create('rumahsakits', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('alamat');
+              $table->softDeletes();
+            $table->timestamps();
+        });
+```
+
+## migrate :
+
+```bash
+$ php artisan migrate
+```
+
+## create Controller :
+
+```bash
+$ php artisan make:controller RumahsakitController -r
+```
+
+## create Model :
+
+```bash
+$ php artisan make:model Rumahsakit
+```
+
+## model Rumahsakit :
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
+class Rumahsakit extends Model
+{
+
+    use SoftDeletes;
+    protected $table ='rumahsakits';
+    protected $fillable = ['name','alamat'];
+
+
+    public function kamar()
+    {
+      return $this->hasMany('App\Kelasrawat','id');
+    }
+}
+```
+
+
 ## Install package :
 
 ```bash
@@ -25,12 +84,34 @@ $ composer require bantenprov/yankes-info-kamar
 ## Artisan command :
 
 ```bash
-$ php artisan vendor:publish --tag=migration
-$ php artisan vendor:publish --tag=view
+$ php artisan bantenprov:create-controller
+$ php artisan bantenprov:create-view
+$ php artisan bantenprov:create-model
+$ php artisan migrate
+$ php artisan make:auth
+
 ```
+
+## Route web :
+
+```php
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('rumah-sakit','RumahsakitController');
+Route::resource('kelasrawat', 'KelasController');
+Route::resource('ruangrawat', 'RuangController');
+Route::resource('bedrawat', 'BedController');
+
+
+```
+
 
 ### run local server 
 ```php
 1. php artisan serve
-2. http://127.0.0.1:8000/demo
+2. http://127.0.0.1:8000/home
+3. registrasi 
+4. create data rumahsakit
 ```

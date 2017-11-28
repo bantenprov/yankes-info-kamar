@@ -1,4 +1,5 @@
-<?php namespace Bantenprov\YankesInfoKamar\Models;
+<?php
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -35,6 +36,6 @@ class Tempattidur extends Model
 
     public function ranjang()
      {
-        return  $this->belongsTo('Bantenprov\YankesInfoKamar\Models\Ruangrawat','ruang_id');
+        return  $this->belongsTo('App\Ruangrawat','ruang_id');
      }
 }

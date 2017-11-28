@@ -1,14 +1,9 @@
-<?php namespace Supriyanih\InfoKamar;
+<?php namespace Bantenprov\YankesInfoKamar;
 
 use Illuminate\Support\ServiceProvider;
-use Supriyanih\InfoKamar\Console\Commands\InfoKamarCommand;
+use Bantenprov\YankesInfoKamar\Console\Commands\InfoKamarCommand;
 
-/**
- * The InfoKamarServiceProvider class
- *
- * @package Supriyanih\InfoKamar
- * @author  supriyanih <supriyanih@gmail.com>
- */
+
 class InfoKamarServiceProvider extends ServiceProvider
 {
 
@@ -33,6 +28,10 @@ class InfoKamarServiceProvider extends ServiceProvider
         $this->viewHandle();
         $this->assetHandle();
         $this->migrationHandle();
+
+        $this->commands('Bantenprov\YankesInfoKamar\Commands\CreateViewCommand');
+        $this->commands('Bantenprov\YankesInfoKamar\Commands\CreateControllerCommand');
+        $this->commands('Bantenprov\YankesInfoKamar\Commands\CreateModelCommand');
     }
 
     /**

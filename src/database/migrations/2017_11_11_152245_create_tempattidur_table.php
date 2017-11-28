@@ -17,6 +17,7 @@ class CreateTempattidurTable extends Migration
             $table->increments('id');
             $table->integer('ruang_id')->unsigned();
             $table->foreign('ruang_id')->references('id')->on('ruang_rawat_inap')->onDelete('cascade');
+            $table->integer('created_by');
             $table->string('kode_bed');
             $table->integer('status');
             $table->softDeletes();

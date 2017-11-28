@@ -1,32 +1,37 @@
-<?php namespace Bantenprov\YankesInfoKamar\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Bantenprov\YankesInfoKamar\Facades\InfoKamar;
-use Bantenprov\YankesInfoKamar\Models\Ruangrawat;
-use Bantenprov\YankesInfoKamar\Models\Tempattidur;
-use Bantenprov\YankesInfoKamar\Requests\StoreBed;
-use Bantenprov\YankesInfoKamar\Requests\UpdateBed;
+use Auth;
+use App\Ruangrawat;
+use App\Tempattidur;
+use App\Kelasrawat;
 
 
 class BedController extends Controller
 {
 
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
  public function index(){
 
- 	$bed = Tempattidur::with('ranjang')->paginate(5);
+ 	$bed = Tempattidur::with('ranjang.kelas.kamar')->paginate(5);
 
- 	return view('info-kamar::bed.index', compact('bed'));
+ 	return view('bed.index', compact('bed'));
 
  }
 
  public function create()
  {
    $ruang = Ruangrawat::all();
- 	return view('info-kamar::bed.create', compact('ruang'));
+ 	return view('bed.create', compact('ruang'));
  }
 
- public function store(StoreBed $req)
+ public function store(Request $req)
  {
  	$this->validate($req,[
     'ruang_id' => 'required',
@@ -37,17 +42,18 @@ class BedController extends Controller
     $bed->ruang_id = $req->ruang_id;
    	 $bed->kode_bed = $req->kode_bed;
    	 $bed->status = 1;
+     $bed->created_by = Auth::user()->id;
    	 $bed->save();
 
    	  \Session::flash('flash_message', 'bed Rawat Inap Berhasil Di buat');
-        return redirect()->route('bed.index');
+        return redirect()->route('bedrawat.index');
 
  }
 
  public function show($id)
     {
         $bed = Tempattidur::with('ranjang')->findOrFail($id);
-        return view('info-kamar::bed.show', compact('bed'));
+        return view('bed.show', compact('bed'));
     }
 
  public function edit($id)
@@ -55,10 +61,10 @@ class BedController extends Controller
      $ruang = Ruangrawat::all();
    	$bed = Tempattidur::findOrFail($id);
 
-   		return view('info-kamar::bed.edit', compact('bed','ruang'));
+   		return view('bed.edit', compact('bed','ruang'));
    }
 
-   public function update(UpdateBed $request, $id)
+   public function update(Request $request, $id)
    {
    		$this->validate($request,[
         'ruang_id' => 'required',
@@ -71,14 +77,14 @@ class BedController extends Controller
 	   	 $bed->status = $request->status;
 	   	 $bed->save();
    		\Session::flash('flash_message', 'bed Rawat Inap Berhasil di UPDATE');
-        return redirect()->route('bed.index');
+        return redirect()->route('bedrawat.index');
    }
 
    public function destroy($id)
     {
 
         Tempattidur::find($id)->delete();
-        return redirect()->route('bed.index');
+        return redirect()->route('bedrawat.index');
     }
 
 }

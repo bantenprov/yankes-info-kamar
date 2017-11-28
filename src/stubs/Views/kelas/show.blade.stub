@@ -1,0 +1,9 @@
+@extends('layouts.app')
+@section('content')
+
+    <h1>{{ $kelas->kode_kelas }}</h1>
+    <h2> {{ $kelas->nama_kelas }}</h2>
+<hr>
+<a href="{{ route('kelasrawat.index',$kelas->id)}}" class="btn btn-default"> &laquo; kembali</a>
+<a href="{{ route('kelasrawat.edit',$kelas->id)}}" class="btn btn-default">ubah &raquo;</a>
+@endsection

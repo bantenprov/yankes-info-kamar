@@ -17,8 +17,9 @@ class CreateRuangrawatinapTable extends Migration
             $table->increments('id');
             $table->integer('kelas_id')->unsigned();
             $table->foreign('kelas_id')->references('id')->on('kelas_rawat_inap')->onDelete('cascade');
-            $table->string('kode_ruang',50);
-            $table->string('nama_ruang',50);
+            $table->integer('created_by');
+            $table->string('kode_ruang');
+            $table->string('nama_ruang');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -1,36 +1,36 @@
-<?php namespace Bantenprov\YankesInfoKamar\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Bantenprov\YankesInfoKamar\Facades\InfoKamar;
-use Bantenprov\YankesInfoKamar\Models\Ruangrawat;
-use Bantenprov\YankesInfoKamar\Models\Kelasrawat;
-use Bantenprov\YankesInfoKamar\Requests\StoreRuang;
-use Bantenprov\YankesInfoKamar\Requests\UpdateRuang;
 
-/**
- * The InfoKamarController class.
- *
- * @package Supriyanih\InfoKamar
- * @author  supriyanih <supriyanih@gmail.com>
- */
+use App\Ruangrawat;
+use App\Kelasrawat;
+use Auth;
+
+
 class RuangController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
  public function index(){
 
  	$ruang = Ruangrawat::with('kelas')->paginate(5);
- 	return view('info-kamar::ruang.index', compact('ruang'));
+ 	return view('ruang.index', compact('ruang'));
 
  }
 
  public function create()
  {
    $kelas = Kelasrawat::all();
- 	return view('info-kamar::ruang.create', compact('kelas'));
+ 	return view('ruang.create', compact('kelas'));
  }
 
- public function store(StoreRuang $req)
+ public function store(Request $req)
  {
  	$this->validate($req,[
     'kelas_id' => 'required',
@@ -42,17 +42,18 @@ class RuangController extends Controller
     $ruang->kelas_id = $req->kelas_id;
    	 $ruang->kode_ruang = $req->kode_ruang;
    	 $ruang->nama_ruang = $req->nama_ruang;
+     $ruang->created_by = Auth::user()->id;
    	 $ruang->save();
 
    	  \Session::flash('flash_message', 'Ruang Rawat Inap Berhasil Di buat');
-        return redirect()->route('ruang.index');
+        return redirect()->route('ruangrawat.index');
 
  }
 
  public function show($id)
     {
         $ruang = Ruangrawat::with('kelas')->findOrFail($id);
-        return view('info-kamar::ruang.show', compact('ruang'));
+        return view('ruang.show', compact('ruang'));
     }
 
  public function edit($id)
@@ -60,10 +61,10 @@ class RuangController extends Controller
      $kelas = Kelasrawat::all();
    	$ruang = Ruangrawat::findOrFail($id);
 
-   		return view('info-kamar::ruang.edit', compact('ruang','kelas'));
+   		return view('ruang.edit', compact('ruang','kelas'));
    }
 
-   public function update(UpdateRuang $request, $id)
+   public function update(Request $request, $id)
    {
    		$this->validate($request,[
         'kelas_id' => 'required',
@@ -76,14 +77,14 @@ class RuangController extends Controller
 	   	 $ruang->nama_ruang = $request->nama_ruang;
 	   	 $ruang->save();
    		\Session::flash('flash_message', 'ruang Rawat Inap Berhasil di UPDATE');
-        return redirect()->route('ruang.index');
+        return redirect()->route('ruangrawat.index');
    }
 
    public function destroy($id)
     {
 
         Ruangrawat::find($id)->delete();
-        return redirect()->route('ruang.index');
+        return redirect()->route('ruangrawat.index');
     }
 
 }

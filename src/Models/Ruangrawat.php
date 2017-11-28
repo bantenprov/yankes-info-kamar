@@ -1,4 +1,4 @@
-<?php namespace Supriyanih\InfoKamar\Models;
+<?php namespace Bantenprov\YankesInfoKamar\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -46,12 +46,12 @@ class Ruangrawat extends Model
 
     public function kelas()
      {
-        return  $this->belongsTo('Supriyanih\InfoKamar\Models\Kelasrawat','kelas_id');
+        return  $this->belongsTo('Bantenprov\YankesInfoKamar\Models\Kelasrawat','kelas_id');
      }
 
 
      public function ranjang()
     {
-      return  $this->hasMany('Supriyanih\InfoKamar\Models\Tempattidur','ruang_id');
+      return  $this->hasMany('Bantenprov\YankesInfoKamar\Models\Tempattidur','ruang_id');
     }
 }

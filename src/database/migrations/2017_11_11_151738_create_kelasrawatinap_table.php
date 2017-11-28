@@ -15,10 +15,17 @@ class CreateKelasrawatinapTable extends Migration
     {
         Schema::create('kelas_rawat_inap', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kode_kelas',50);
-            $table->string('nama_kelas',60);
+            $table->integer('id_rs')->unsigned();
+            $table->foreign('id_rs')
+              ->references('id')
+              ->on('rumahsakits')
+              ->onDelete('cascade');
+            $table->integer('created_by');
+            $table->string('kode_kelas');
+            $table->string('nama_kelas');
             $table->softDeletes();
             $table->timestamps();
+
         });
     }
 
