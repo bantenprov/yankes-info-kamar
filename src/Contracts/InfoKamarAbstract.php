@@ -1,4 +1,4 @@
-<?php namespace Supriyanih\InfoKamar\Contracts;
+<?php namespace Bantenprov\YankesInfoKamar\Contracts;
 
 /**
  * The InfoKamarAbstract class

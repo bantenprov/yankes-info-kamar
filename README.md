@@ -70,6 +70,7 @@ class Rumahsakit extends Model
 $ composer require bantenprov/yankes-info-kamar
 ```
 
+## config/app.php
 ```php
 'providers' => [
     ...
@@ -80,6 +81,14 @@ $ composer require bantenprov/yankes-info-kamar
     ...
     Bantenprov\YankesInfoKamar\InfoKamarServiceProvider::class,
     Collective\Html\HtmlServiceProvider::class,
+    ],
+
+
+'aliases' => [
+    ....
+    'Form' => Collective\Html\FormFacade::class,
+    'Html' => Collective\Html\HtmlFacade::class,
+    ]
 ```
 ## Artisan command :
 
@@ -112,6 +121,5 @@ Route::resource('bedrawat', 'BedController');
 ```php
 1. php artisan serve
 2. http://127.0.0.1:8000/home
-3. registrasi 
-4. create data rumahsakit
+
 ```

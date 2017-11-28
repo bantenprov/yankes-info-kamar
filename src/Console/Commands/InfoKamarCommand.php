@@ -1,4 +1,4 @@
-<?php namespace Supriyanih\InfoKamar\Console\Commands;
+<?php namespace Bantenprov\YankesInfoKamar\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -16,14 +16,14 @@ class InfoKamarCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'supriyanih:info-kamar';
+    protected $signature = 'bantenprov:info-kamar';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Demo command for Supriyanih\InfoKamar package';
+    protected $description = 'Demo command for Bantenprov\YankesInfoKamar package';
 
     /**
      * Create a new command instance.
@@ -42,6 +42,6 @@ class InfoKamarCommand extends Command
      */
     public function handle()
     {
-        $this->info('Welcome to command for Supriyanih\InfoKamar package');
+        $this->info('Welcome to command for Bantenprov\YankesInfoKamar package');
     }
 }
