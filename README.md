@@ -1,5 +1,6 @@
 # Yankes
 Sistem informasi layanan kesehatan terpadu.
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bantenprov/yankes-info-kamar/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bantenprov/yankes-info-kamar/?branch=master)
 
 ## Install Laravel :
 ```bash
